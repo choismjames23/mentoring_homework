@@ -4,4 +4,7 @@ class CharacterBase:
         self.name = name
         self.hp = hp
         self.attack_damage = attack_damage
-        
+
+
+    def base_attack(self, target):
+        target.hp -= self.attack_damage
