@@ -7,3 +7,6 @@ class Warrior(CharacterBase):
         # 전사의 체력은 기본 캐릭터보다 100 높다
         self.hp += 100
         self.attack_damage = 10
+
+    def power_up(self):
+        self.attack_damage += 5
