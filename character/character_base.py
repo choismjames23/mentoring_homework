@@ -1,5 +1,7 @@
 class CharacterBase:
 
+    hp = 100
+    
     def __init__(self, name, hp, attack_damage):
         self.name = name
         self.hp = hp

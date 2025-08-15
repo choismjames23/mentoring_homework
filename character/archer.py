@@ -2,10 +2,9 @@ from character.character_base import CharacterBase
 
 class Archer(CharacterBase):
 
-    def __init__(self, name, hp, attack_damage):
+    def __init__(self, name):
         self.name = name
-        self.hp = hp
-        self.attack_damage = attack_damage
+        self.attack_damage = 7
 
     # 2회 연속 공격 스킬
     def double_attack(self, target):
