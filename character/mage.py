@@ -6,3 +6,7 @@ class Mage(CharacterBase):
         self.name = name
         self.hp = hp
         self.attack_damage = attack_damage
+
+    # 자신의 체력을 20 회복
+    def heal(self):
+        self.hp += 20
