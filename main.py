@@ -12,10 +12,13 @@ if __name__ == "__main__":
 
     print("현재 생성된 캐릭터 목록 : ", get_character_names(playing_character))
 
+    stop = False
     #게임 진행
-    while True:
+    while not stop:
+        select_user_action(playing_character)
+
         for character in playing_character:
             if get_hp_info(character) <= 0:
+                stop = True
+                print("게임을 종료합니다.")
                 break
-        
-        select_user_action(playing_character)

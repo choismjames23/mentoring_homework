@@ -8,5 +8,5 @@ class CharacterBase:
         self.attack_damage = attack_damage
 
 
-    def base_attack(self, target):
+    def base_attack(self, target: object):
         target.hp -= self.attack_damage
