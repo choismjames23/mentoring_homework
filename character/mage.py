@@ -5,6 +5,7 @@ class Mage(CharacterBase):
     def __init__(self, name):
         self.name = name
         self.attack_damage = 8
+        self.job = 'mage'
 
     # 자신의 체력을 20 회복
     def heal(self):
