@@ -9,16 +9,19 @@ if __name__ == "__main__":
     count = int(input("생성할 캐릭터 수를 입력하세요 : "))
     for _ in range(count):
         playing_character.append(set_character())
+        print("="*50)
 
     print("현재 생성된 캐릭터 목록 : ", get_character_names(playing_character))
+    print("="*50)
 
-    stop = False
     #게임 진행
+    stop = False
     while not stop:
         select_user_action(playing_character)
+        print('='*50)
 
         for character in playing_character:
             if get_hp_info(character) <= 0:
                 stop = True
-                print("게임을 종료합니다.")
+                print(f"게임을 종료합니다. {character.name} 캐릭터 사망")
                 break

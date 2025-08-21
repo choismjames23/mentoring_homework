@@ -36,7 +36,30 @@ def select_user_action(character_list):
 
     # 스킬 사용하기        
     elif action == 4:
-        print("스킬 목록은 다음과 같습니다.(전사: 공격력 증가, 궁수: 더블 어택, 마법사: 셀프 힐) : ")
+        print("스킬 목록은 다음과 같습니다.(전사: 공격력 증가, 궁수: 더블 어택, 마법사: 셀프 힐)")
+        name = str(input(f"스킬을 사용할 캐릭터 이름을 입력하세요.({playing_character}) : "))
+
+        # 전사
+        if character_list[playing_character.index(name)].job == 'warrior':
+            character_list[playing_character.index(name)].power_up()
+            print(f'{name} 캐릭터의 공격력이 5 증가하였습니다. 현재 공격력 : {character_list[playing_character.index(name)].attack_damage}')
+
+        # 궁수
+        elif character_list[playing_character.index(name)].job == 'archer':
+            target_name = str(input(f"공격 타겟 캐릭터 이름을 입력하세요.({playing_character}) : "))
+            if target_name in playing_character:
+                character_list[playing_character.index(name)].double_attack(character_list[playing_character.index(target_name)])
+                print(f"{name} 가 {target_name} 를 공격하였습니다. 데미지 : {character_list[playing_character.index(name)].attack_damage * 2}, {target_name} 체력 : {get_hp_info(character_list[playing_character.index(target_name)])} ")
+            else:
+                print("대상이 올바르지 않습니다.")
+
+        # 마법사
+        elif character_list[playing_character.index(name)].job == 'mage':
+            character_list[playing_character.index(name)].heal()
+            print(f'{name} 캐릭터가 체력을 20 회복했습니다. 현재 체력 : {character_list[playing_character.index(name)].hp}')
+
+        else:
+            print('스킬 사용 가능한 직업군이 아닙니다.')
 
     else:
         print("유효한 행동이 아닙니다.")
